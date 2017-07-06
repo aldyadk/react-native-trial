@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Image, Text, Button } from 'react-native'
-// import { navi } from 'react-navigation'
+import { View, Image, Text } from 'react-native'
+import { LoginButton } from './loginButton'
 
 export class Home extends Component {
   static navigationOptions = {
@@ -16,9 +16,7 @@ export class Home extends Component {
         <Text style={{color:'white',fontSize:20,fontWeight:'bold'}} >
           Welcome to The Empire killing list!
         </Text>
-        <Button
-        onPress={()=>this.props.navigation.navigate('Login')}
-        title='Login'/>
+        <LoginButton  navigate={this.props.navigation.navigate}/>
       </View>
     );
   }
