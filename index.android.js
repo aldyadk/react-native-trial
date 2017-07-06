@@ -25,4 +25,4 @@ const WarsStar = StackNavigator({
 });
 
 
-AppRegistry.registerComponent('WarsStar', () => HitmanTab);
+AppRegistry.registerComponent('WarsStar', () => WarsStar);
