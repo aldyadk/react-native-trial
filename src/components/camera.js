@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
+import { NavigationActions } from 'react-navigation'
 import Camera from 'react-native-camera'
 
 export class HitmanSelfie extends Component {
@@ -19,19 +20,18 @@ export class HitmanSelfie extends Component {
           ref={(cam)=>{
             this.camera = cam
           }}
-          style={{width:300,height:400}}
-          aspect={Camera.constants.Aspect.fill}
-          type={this.state.camera==='front'? Camera.constants.Type.front :Camera.constants.Type.back}
+          style={{width:350,height:450}}
+          type={this.state.camera==='front'? Camera.constants.Type.front : Camera.constants.Type.back}
         >
           <Text
-            style={{backgroundColor:'white',alignSelf:'flex-end'}}
+            style={{backgroundColor:(this.state.camera==='front'?'yellow':'pink'),alignSelf:'flex-end'}}
             onPress={()=>this.setState({camera:(this.state.camera==='front'?'back':'front')})}
             alignSelf='flex-end'
           >[FLIP]
           </Text>
         </Camera>
         <Text
-          style={{backgroundColor:'white',textAlign:'center',alignSelf:'center'}}
+          style={{fontSize:20,backgroundColor:'white',textAlign:'center',alignSelf:'center'}}
           onPress={this.takePicture.bind(this)}
         >[CAPTURE]
         </Text>

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { View, Image, Text } from 'react-native'
 import { LoginButton } from './loginButton'
+import { connect } from 'react-redux'
 
-export class Home extends Component {
+import { userSubmit, dataReset } from '../actions'
+
+class Home extends Component {
   static navigationOptions = {
     title: 'WarsStar - Home',
   };
@@ -20,4 +23,19 @@ export class Home extends Component {
       </View>
     );
   }
+  componentDidMount(){
+    setTimeout(()=>{
+      this.props.submitUser('')
+      this.props.resetData()
+    },1000)
+  }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitUser: (user) => dispatch(userSubmit(user)),
+    resetData: () => dispatch(dataReset()),
+  }
+}
+
+export default connect(null,mapDispatchToProps)(Home)
